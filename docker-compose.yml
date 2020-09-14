@@ -39,6 +39,7 @@ services:
       - result-tier
       - back-tier
     volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/init.sql
       - db-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=postgres
