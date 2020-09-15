@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 def get_redis():
     if not hasattr(g, 'redis'):
-        g.redis = Redis(host="127.0.0.1", db=0, socket_timeout=5)
+        g.redis = Redis(host=os.getenv('REDIS_HOST', 'redis'), port=os.getenv('REDIS_PORT', 6379), db=0, socket_timeout=5)
     return g.redis
 
 
